@@ -1,3 +1,12 @@
 class BakedGood < ActiveRecord::Base
-  # add association macro here
+  belongs_to :bakery
+
+  def self.by_price
+    self.order(:price)
+  end
+
+  def self.most_expensive
+    self.order(:price).last
+  end
+
 end
